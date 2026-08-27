@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investigative Relevance Engine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="logo">Investigative Relevance Engine</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="architecture.html">Architecture</a>
+            <a href="model.html">Mathematical Model</a>
+            <a href="existing-approaches.html">Existing Approaches</a>
+        </div>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="container">
+        <p class="eyebrow">RESEARCH CONCEPT / EARLY-STAGE PROTOTYPE</p>
+
+    <h1>Evidence-Aware, Query-Dependent Markov Ranking</h1>
+
+    <p class="subtitle">
+        Investigative relevance ranking over heterogeneous knowledge graphs.
+    </p>
+
+    <div class="hero-statement">
+        Network importance ≠ investigative relevance.
+    </div>
+
+    <p class="hero-description">
+        This project explores whether Markov-based graph ranking can be
+        extended with query relevance, evidence strength, temporal context,
+        source trust, anomaly signals, and alternative explanations to
+        better prioritize investigative leads.
+    </p>
+
+    <div class="buttons">
+        <a href="architecture.html" class="button">Explore the Architecture</a>
+        <a href="model.html" class="button secondary">View the Model</a>
+    </div>
+</div>
+
+
+</header>
+
+<main>
+
+<section>
+    <div class="container">
+
+
+    <h2>The Problem</h2>
+
+    <p>
+        Modern investigations can involve millions of records:
+        communications, financial transactions, locations, surveillance,
+        documents, public records, devices, vehicles, and social
+        relationships.
+    </p>
+
+    <p>
+        Existing analytical systems can discover relationships within
+        this information. But once a graph becomes large, a more difficult
+        question emerges:
+    </p>
+
+    <blockquote>
+        Which relationships deserve the investigator's attention first?
+    </blockquote>
+
+    <p>
+        Consider a person with hundreds of connections. A conventional
+        graph-ranking algorithm may consider that person highly important.
+        But an investigator may instead be asking:
+    </p>
+
+    <blockquote>
+        "Who communicated with the victim during the six hours preceding
+        the event?"
+    </blockquote>
+
+    <p>
+        A person with only two connections could be much more relevant if
+        one of those connections was a direct communication with the
+        victim shortly before the event and was supported by reliable
+        evidence.
+    </p>
+
+    <div class="insight">
+        <strong>Core insight:</strong>
+        Network importance is not necessarily the same thing as
+        investigative relevance.
+    </div>
+
+</div>
+
+
+</section>
+
+<section class="alt">
+    <div class="container">
+
+
+    <h2>From Network Importance to Investigative Relevance</h2>
+
+    <p>
+        Traditional graph analysis often asks:
+    </p>
+
+    <div class="question">
+        Who is important in this network?
+    </div>
+
+    <p>
+        This project explores a different question:
+    </p>
+
+    <div class="question">
+        Given the investigator's current question, case context, and
+        available evidence, what should be examined next?
+    </div>
+
+    <p>
+        The proposed ranking incorporates multiple signals:
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Graph Structure</h3>
+            <p>
+                Network position, connectivity, and multi-hop relationships.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Query Relevance</h3>
+            <p>
+                How closely a relationship answers the investigator's
+                current question.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Evidence Strength</h3>
+            <p>
+                Quality and corroboration of the evidence supporting a
+                relationship.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Temporal Relevance</h3>
+            <p>
+                How closely an event occurs to the time period relevant
+                to the investigation.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Source Trust</h3>
+            <p>
+                Reliability and authority of the source supporting the
+                information.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Anomaly Signals</h3>
+            <p>
+                Unexpected behavior, missing relationships, or deviations
+                from established patterns.
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+
+</section>
+
+<section>
+    <div class="container">
+
+
+    <h2>Why Markov Ranking?</h2>
+
+    <p>
+        The conceptual inspiration comes partly from PageRank and its
+        Markov-chain interpretation of network importance.
+    </p>
+
+    <p>
+        PageRank demonstrated that the importance of a node can depend
+        on the structure of the network around it. This project explores
+        whether a similar graph-propagation principle can be made
+        explicitly dependent on an investigative question.
+    </p>
+
+    <p>
+        Instead of producing a single permanent importance score, the
+        system would produce a ranking conditioned on:
+    </p>
+
+    <div class="formula">
+        Query + Case + Evidence + Time + Trust
+    </div>
+
+    <p>
+        Changing the investigative question should therefore change the
+        ranking.
+    </p>
+
+</div>
+
+
+</section>
+
+<section class="alt">
+    <div class="container">
+
+
+    <h2>Example</h2>
+
+    <p>
+        Imagine the same investigative knowledge graph is used to answer
+        three different questions.
+    </p>
+
+    <div class="example-grid">
+
+        <div class="example">
+            <h3>Question A</h3>
+            <p>
+                Who communicated with the victim during the previous
+                24 hours?
+            </p>
+            <strong>Communication + Time + Evidence</strong>
+        </div>
+
+        <div class="example">
+            <h3>Question B</h3>
+            <p>
+                Who financially benefited from the victim during the
+                previous month?
+            </p>
+            <strong>Financial + Time + Evidence</strong>
+        </div>
+
+        <div class="example">
+            <h3>Question C</h3>
+            <p>
+                Who could have been physically present at the event?
+            </p>
+            <strong>Location + Movement + Time</strong>
+        </div>
+
+    </div>
+
+    <p class="center-text">
+        The underlying graph may remain largely unchanged.
+        The ranking should not.
+    </p>
+
+</div>
+
+
+</section>
+
+<section>
+    <div class="container">
+
+
+    <h2>Where AI Fits</h2>
+
+    <p>
+        The proposal does not treat an LLM as the entire reasoning engine.
+        Different components have different responsibilities.
+    </p>
+
+    <div class="architecture-mini">
+
+        <div>
+            <strong>LLM</strong>
+            <span>Query understanding, extraction, explanation</span>
+        </div>
+
+        <div>
+            <strong>Knowledge Graph</strong>
+            <span>Entities, relationships, evidence, temporal context</span>
+        </div>
+
+        <div>
+            <strong>Markov Engine</strong>
+            <span>Graph propagation and relevance ranking</span>
+        </div>
+
+        <div>
+            <strong>RAG</strong>
+            <span>Retrieval of supporting evidence</span>
+        </div>
+
+        <div>
+            <strong>Human Investigator</strong>
+            <span>Interpretation, verification, and decisions</span>
+        </div>
+
+    </div>
+
+</div>
+
+
+</section>
+
+<section class="alt">
+    <div class="container">
+
+
+    <h2>Research Question</h2>
+
+    <blockquote class="large">
+        Can a dynamically weighted Markov process over a heterogeneous
+        investigative knowledge graph identify and prioritize entities,
+        relationships, and evidence that are most relevant to a specific
+        investigative question more effectively than conventional graph
+        centrality, semantic retrieval, or LLM-based approaches operating
+        independently?
+    </blockquote>
+
+    <p>
+        This is an empirical question. The individual technologies involved
+        are established areas of research. The focus of this project is
+        their integration and measurable performance.
+    </p>
+
+</div>
+
+
+</section>
+
+<section>
+    <div class="container">
+
+
+    <h2>Current Status</h2>
+
+    <div class="status">
+        <span>Early-stage research / prototype</span>
+    </div>
+
+    <p>
+        This project is intentionally open to criticism and prior-art
+        discovery.
+    </p>
+
+    <p>
+        The goal is not to assume that the concept is novel, but to
+        investigate where it overlaps with existing research and whether
+        the proposed combination produces measurable improvements.
+    </p>
+
+    <h3>I'm particularly interested in:</h3>
+
+    <ul>
+        <li>Existing research I may have missed</li>
+        <li>Alternative mathematical formulations</li>
+        <li>Better evaluation methods</li>
+        <li>Appropriate datasets</li>
+        <li>Potential failure modes</li>
+        <li>Ways to turn the concept into a working prototype</li>
+    </ul>
+
+</div>
+
+
+</section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <p>
+            Investigative Relevance Engine · Research Concept
+        </p>
+        <p>
+            <a href="https://github.com/YOUR_USERNAME/investigative-relevance-engine">
+                View source on GitHub
+            </a>
+        </p>
+    </div>
+</footer>
+
+</body>
+</html>
