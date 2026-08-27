@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Existing Approaches | Investigative Relevance Engine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="logo">Investigative Relevance Engine</a>
+
+```
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="model.html">Mathematical Model</a>
+        <a href="existing-approaches.html">Existing Approaches</a>
+    </div>
+</div>
+```
+
+</nav>
+
+<header class="page-header">
+<div class="container">
+
+<p class="eyebrow">PRIOR ART / COMPARISON</p>
+
+<h1>How Does This Compare?</h1>
+
+<p>
+The individual technologies behind this concept are not new.
+The research question concerns their combination and interaction.
+</p>
+
+</div>
+</header>
+
+<main>
+
+<section>
+<div class="container">
+
+<h2>A Deliberately Conservative Claim</h2>
+
+<p>
+This project does <strong>not</strong> claim to have invented:
+</p>
+
+<ul>
+<li>PageRank</li>
+<li>Personalized PageRank</li>
+<li>Knowledge graphs</li>
+<li>Link analysis</li>
+<li>RAG</li>
+<li>Large Language Models</li>
+<li>Anomaly detection</li>
+<li>Learning-to-rank</li>
+<li>AI-assisted investigations</li>
+</ul>
+
+<p>
+Many of these technologies have already been applied independently or in
+combination in search, cybersecurity, fraud detection, intelligence
+analysis, and investigative environments.
+</p>
+
+<p>
+The question being explored here is narrower:
+</p>
+
+<blockquote class="large">
+Can these ideas be integrated into a unified, query-dependent,
+evidence-aware Markov ranking architecture specifically designed around
+investigative relevance?
+</blockquote>
+
+</div>
+</section>
+
+<section class="alt">
+<div class="container">
+
+<h2>Traditional Link Analysis</h2>
+
+<p>
+Link-analysis platforms are highly effective at showing relationships,
+networks, timelines, and organizational structures.
+</p>
+
+<div class="comparison">
+
+<div>
+<strong>Strength</strong>
+<p>
+Excellent at visualizing and exploring relationships.
+</p>
+</div>
+
+<div>
+<strong>Challenge</strong>
+<p>
+Large networks can contain more relationships than an investigator can
+reasonably examine.
+</p>
+</div>
+
+</div>
+
+<p>
+The proposed idea emphasizes a ranking layer that dynamically prioritizes
+relationships according to the investigator's current information need.
+</p>
+
+</div>
+</section>
+
+<section>
+<div class="container">
+
+<h2>PageRank and Personalized PageRank</h2>
+
+<p>
+PageRank established the importance of graph structure in ranking.
+Personalized PageRank further demonstrated that graph importance can be
+conditioned on a preference or personalization vector.
+</p>
+
+<p>
+Therefore:
+</p>
+
+<div class="insight">
+Using PageRank or Personalized PageRank in an investigative graph is
+<strong>not itself a novel claim.</strong>
+</div>
+
+<p>
+The proposed research instead explores extending this family of approaches
+with additional investigative features such as:
+</p>
+
+<ul>
+<li>Semantic query relevance</li>
+<li>Relationship semantics</li>
+<li>Evidence strength</li>
+<li>Temporal relevance</li>
+<li>Source trust</li>
+<li>Anomaly signals</li>
+<li>Alternative explanations</li>
+</ul>
+
+</div>
+</section>
+
+<section class="alt">
+<div class="container">
+
+<h2>Knowledge Graphs</h2>
+
+<p>
+Knowledge graphs are already widely used to represent entities,
+relationships, attributes, and provenance.
+</p>
+
+<p>
+Their strength is representing complex relationships and supporting
+multi-hop queries.
+</p>
+
+<p>
+This project treats the knowledge graph as the computational substrate
+over which a dynamic relevance-ranking process operates.
+</p>
+
+</div>
+</section>
+
+<section>
+<div class="container">
+
+<h2>RAG</h2>
+
+<p>
+Retrieval-Augmented Generation can retrieve documents and evidence relevant
+to a natural-language query.
+</p>
+
+<p>
+However, semantic retrieval alone does not necessarily capture:
+</p>
+
+<ul>
+<li>Graph centrality</li>
+<li>Relationship direction</li>
+<li>Multi-hop network structure</li>
+<li>Temporal sequences</li>
+<li>Expected-but-missing relationships</li>
+<li>Network-wide propagation</li>
+</ul>
+
+<p>
+In this architecture, RAG would therefore function primarily as an
+<strong>evidence retrieval and grounding layer</strong>.
+</p>
+
+</div>
+</section>
+
+<section class="alt">
+<div class="container">
+
+<h2>LLM-Based Systems</h2>
+
+<p>
+LLMs can already perform tasks such as:
+</p>
+
+<ul>
+<li>Natural-language question understanding</li>
+<li>Entity extraction</li>
+<li>Relationship extraction</li>
+<li>Document summarization</li>
+<li>Semantic classification</li>
+<li>Graph-query generation</li>
+<li>Explanation generation</li>
+</ul>
+
+<p>
+The proposed architecture intentionally avoids making the LLM the sole
+ranking authority.
+</p>
+
+<p>
+The ranking should remain grounded in explicit graph and evidence features
+that can be inspected and evaluated.
+</p>
+
+</div>
+</section>
+
+<section>
+<div class="container">
+
+<h2>Comparison</h2>
+
+<table>
+
+<tr>
+<th>Approach</th>
+<th>Primary Strength</th>
+<th>Potential Limitation</th>
+</tr>
+
+<tr>
+<td>Graph Centrality</td>
+<td>Network importance</td>
+<td>May not reflect the current investigative question</td>
+</tr>
+
+<tr>
+<td>PageRank</td>
+<td>Graph-based importance</td>
+<td>Basic ranking is not inherently evidence-aware</td>
+</tr>
+
+<tr>
+<td>Personalized PageRank</td>
+<td>Query/context personalization</td>
+<td>Still requires appropriate personalization signals</td>
+</tr>
+
+<tr>
+<td>Link Analysis</td>
+<td>Relationship discovery</td>
+<td>Large networks can produce information overload</td>
+</tr>
+
+<tr>
+<td>Knowledge Graphs</td>
+<td>Complex relationship representation</td>
+<td>Representation alone does not determine investigative priority</td>
+</tr>
+
+<tr>
+<td>RAG</td>
+<td>Semantic evidence retrieval</td>
+<td>Does not inherently model network propagation</td>
+</tr>
+
+<tr>
+<td>LLM</td>
+<td>Language understanding and explanation</td>
+<td>Can be difficult to make ranking deterministic and auditable</td>
+</tr>
+
+<tr class="highlight-row">
+<td>Proposed Architecture</td>
+<td>Combines graph, query, evidence, time, trust, anomaly, and retrieval</td>
+<td>Requires substantial empirical validation</td>
+</tr>
+
+</table>
+
+</div>
+</section>
+
+<section class="alt">
+<div class="container">
+
+<h2>Where the Potential Contribution Lies</h2>
+
+<p>
+The proposed contribution should therefore be stated cautiously.
+It is not:
+</p>
+
+<div class="quote-negative">
+"Nobody has done this before."
+</div>
+
+<p>
+A more defensible formulation is:
+</p>
+
+<div class="quote-positive">
+"The project investigates whether a unified, query-dependent Markov ranking
+architecture can combine graph structure, semantic relevance, evidence
+strength, temporal context, source trust, anomaly signals, and provenance
+to improve investigative information prioritization."
+</div>
+
+<p>
+The contribution would ultimately need to be demonstrated experimentally.
+</p>
+
+</div>
+</section>
+
+<section>
+<div class="container">
+
+<h2>What Would Make the Idea Interesting?</h2>
+
+<p>
+The strongest version of the project is not a theoretical formula alone.
+It is a measurable experiment.
+</p>
+
+<h3>Compare:</h3>
+
+<div class="cards">
+
+<div class="card">
+<h3>Baseline 1</h3>
+<p>PageRank / graph centrality</p>
+</div>
+
+<div class="card">
+<h3>Baseline 2</h3>
+<p>Personalized PageRank</p>
+</div>
+
+<div class="card">
+<h3>Baseline 3</h3>
+<p>Semantic RAG</p>
+</div>
+
+<div class="card">
+<h3>Baseline 4</h3>
+<p>Graph + RAG</p>
+</div>
+
+<div class="card">
+<h3>Proposed</h3>
+<p>Query-dependent, evidence-aware Markov ranking</p>
+</div>
+
+</div>
+
+<p>
+Then evaluate the systems using metrics such as:
+</p>
+
+<ul>
+<li>Precision@K</li>
+<li>Recall@K</li>
+<li>NDCG</li>
+<li>Mean Reciprocal Rank</li>
+<li>False-positive rate</li>
+<li>Evidence traceability</li>
+<li>Query sensitivity</li>
+<li>Robustness to missing or contradictory evidence</li>
+</ul>
+
+</div>
+</section>
+
+<section class="alt">
+<div class="container">
+
+<h2>Open Questions</h2>
+
+<p>
+Several important questions remain unresolved:
+</p>
+
+<ul>
+<li>
+How should evidence strength be quantified?
+</li>
+
+<li>
+How should source trust be defined without introducing systemic bias?
+</li>
+
+<li>
+How should missing information be distinguished from genuine absence?
+</li>
+
+<li>
+How should weights be learned?
+</li>
+
+<li>
+Can anomaly signals improve ranking without increasing false positives?
+</li>
+
+<li>
+Can the approach outperform simpler baselines?
+</li>
+
+<li>
+How should investigator feedback affect future rankings?
+</li>
+</ul>
+
+<p>
+These questions are part of the research rather than problems to be hidden.
+</p>
+
+</div>
+</section>
+
+</main>
+
+<footer>
+<div class="container">
+<p>Investigative Relevance Engine · Research Concept</p>
+</div>
+</footer>
+
+</body>
+</html>
