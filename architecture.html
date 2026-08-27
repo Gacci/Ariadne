@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture | Investigative Relevance Engine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="logo">Investigative Relevance Engine</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="architecture.html">Architecture</a>
+            <a href="model.html">Mathematical Model</a>
+            <a href="existing-approaches.html">Existing Approaches</a>
+        </div>
+    </div>
+</nav>
+
+<header class="page-header">
+    <div class="container">
+        <p class="eyebrow">SYSTEM DESIGN</p>
+        <h1>Proposed Architecture</h1>
+        <p>
+            An evidence-grounded pipeline connecting heterogeneous data,
+            knowledge graphs, query interpretation, graph ranking, retrieval,
+            and human investigation.
+        </p>
+    </div>
+</header>
+
+<main>
+
+<section>
+<div class="container">
+
+<h2>High-Level Architecture</h2>
+
+<div class="diagram">
+
+```
+<div class="diagram-box">
+    <strong>Data Sources</strong>
+    <span>Case data · Documents · Public data · Authorized sources</span>
+</div>
+
+<div class="arrow">↓</div>
+
+<div class="diagram-box">
+    <strong>LLM / NLP Extraction</strong>
+    <span>Entities · Relationships · Events · Semantic information</span>
+</div>
+
+<div class="arrow">↓</div>
+
+<div class="diagram-box">
+    <strong>Entity Resolution</strong>
+    <span>Resolve references to real-world entities</span>
+</div>
+
+<div class="arrow">↓</div>
+
+<div class="diagram-box highlight">
+    <strong>Investigative Knowledge Graph</strong>
+    <span>Entities · Relationships · Evidence · Time · Provenance</span>
+</div>
+
+<div class="arrow">↓</div>
+
+<div class="diagram-box">
+    <strong>Investigator Query</strong>
+    <span>Natural-language investigative question</span>
+</div>
+
+<div class="arrow">↓</div>
+
+<div class="diagram-box">
+    <strong>Query Interpretation</strong>
+    <span>Relevant entities · relationships · time · context</span>
+</div>
+
+<div class="arrow">↓</div>
+
+<div class="diagram-box highlight">
+    <strong>Query-Dependent Markov Ranking</strong>
+    <span>Graph · relevance · evidence · time · trust · anomaly</span>
+</div>
+
+<div class="arrow">↓</div>
+
+<div class="diagram-box">
+    <strong>RAG + Evidence Retrieval</strong>
+    <span>Retrieve supporting records and source material</span>
+</div>
+
+<div class="arrow">↓</div>
+
+<div class="diagram-box">
+    <strong>LLM Explanation</strong>
+    <span>Explain ranking factors and supporting evidence</span>
+</div>
+
+<div class="arrow">↓</div>
+
+<div class="diagram-box highlight">
+    <strong>Human Investigator</strong>
+    <span>Review · verify · challenge · decide</span>
+</div>
+```
+
+</div>
+
+</div>
+</section>
+
+<section class="alt">
+<div class="container">
+
+<h2>1. Investigative Knowledge Graph</h2>
+
+<p>
+The graph represents a heterogeneous collection of entities and
+relationships rather than simply a social network.
+</p>
+
+<h3>Possible entities</h3>
+
+<ul class="columns">
+    <li>People</li>
+    <li>Organizations</li>
+    <li>Locations</li>
+    <li>Vehicles</li>
+    <li>Devices</li>
+    <li>Telephone numbers</li>
+    <li>Bank accounts</li>
+    <li>Transactions</li>
+    <li>Events</li>
+    <li>Documents</li>
+    <li>Online identities</li>
+    <li>Addresses</li>
+</ul>
+
+<h3>Possible relationships</h3>
+
+<ul class="columns">
+    <li>Called</li>
+    <li>Messaged</li>
+    <li>Emailed</li>
+    <li>Met</li>
+    <li>Visited</li>
+    <li>Paid</li>
+    <li>Transferred money</li>
+    <li>Owned</li>
+    <li>Worked for</li>
+    <li>Traveled to</li>
+    <li>Used</li>
+    <li>Mentioned in</li>
+</ul>
+
+</div>
+</section>
+
+<section>
+<div class="container">
+
+<h2>2. Evidence as a First-Class Graph Component</h2>
+
+<p>
+A relationship should not exist in isolation from the evidence supporting it.
+</p>
+
+<div class="evidence-example">
+
+```
+<div class="entity">Alice</div>
+<div class="arrow">→</div>
+<div class="relationship">called</div>
+<div class="arrow">→</div>
+<div class="entity">Victim</div>
+```
+
+</div>
+
+<div class="evidence-details">
+
+<strong>Supporting evidence</strong>
+
+<ul>
+    <li>Timestamp: 21:32</li>
+    <li>Duration: 8 minutes</li>
+    <li>Source: Telephone record</li>
+    <li>Evidence type: Structured record</li>
+    <li>Reliability: High</li>
+    <li>Supporting document: Record #182</li>
+</ul>
+
+</div>
+
+<p>
+This allows the graph to function as an index over evidence rather than
+a replacement for the evidence itself.
+</p>
+
+</div>
+</section>
+
+<section class="alt">
+<div class="container">
+
+<h2>3. Query Interpretation</h2>
+
+<p>
+The investigator's natural-language question becomes a first-class input
+to the ranking system.
+</p>
+
+<div class="query-box">
+    "Who communicated with the victim during the six hours preceding the event?"
+</div>
+
+<p>
+An LLM or other query-understanding component could extract:
+</p>
+
+<ul>
+    <li>Target entity: Victim</li>
+    <li>Time window: Six hours preceding event</li>
+    <li>Relationship type: Communication</li>
+    <li>Preferred evidence: Direct and reliable records</li>
+</ul>
+
+<p>
+These parameters then influence the ranking process.
+</p>
+
+</div>
+</section>
+
+<section>
+<div class="container">
+
+<h2>4. Ranking Features</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Graph Structure</h3>
+<p>
+Connectivity, path length, centrality, and structural relationships.
+</p>
+</div>
+
+<div class="card">
+<h3>Semantic Relevance</h3>
+<p>
+How closely the relationship matches the investigator's question.
+</p>
+</div>
+
+<div class="card">
+<h3>Evidence Strength</h3>
+<p>
+Reliability, corroboration, specificity, and evidentiary quality.
+</p>
+</div>
+
+<div class="card">
+<h3>Temporal Relevance</h3>
+<p>
+Distance between an observed event and the relevant investigative time.
+</p>
+</div>
+
+<div class="card">
+<h3>Source Trust</h3>
+<p>
+Reliability and authority associated with the information source.
+</p>
+</div>
+
+<div class="card">
+<h3>Anomaly</h3>
+<p>
+Unexpected or missing relationships relative to an established baseline.
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section class="alt">
+<div class="container">
+
+<h2>5. False-Flag Analysis</h2>
+
+<p>
+High relevance does not necessarily mean wrongdoing.
+A relationship can be highly visible for completely innocent reasons.
+</p>
+
+<ul>
+    <li>Shared workplace</li>
+    <li>Shared residence</li>
+    <li>Family relationship</li>
+    <li>Common service provider</li>
+    <li>Geographic coincidence</li>
+    <li>Routine commercial activity</li>
+    <li>Entity-resolution error</li>
+    <li>Incomplete data</li>
+</ul>
+
+<p>
+The system should therefore expose alternative explanations rather than
+produce an opaque "suspicion score."
+</p>
+
+<div class="insight">
+<strong>Important distinction:</strong>
+Investigative relevance is not a probability of guilt.
+</div>
+
+</div>
+</section>
+
+<section>
+<div class="container">
+
+<h2>6. Human-in-the-Loop Design</h2>
+
+<p>
+The system is intended to prioritize information, not replace investigative
+judgment.
+</p>
+
+<div class="human-loop">
+
+<div>
+<strong>System</strong>
+<p>Ranks and explains</p>
+</div>
+
+<div class="arrow">↔</div>
+
+<div>
+<strong>Investigator</strong>
+<p>Reviews and challenges</p>
+</div>
+
+<div class="arrow">↔</div>
+
+<div>
+<strong>Evidence</strong>
+<p>Supports or contradicts</p>
+</div>
+
+</div>
+
+<p>
+Every significant ranking contribution should ideally be traceable to an
+underlying record.
+</p>
+
+</div>
+</section>
+
+</main>
+
+<footer>
+<div class="container">
+<p>Investigative Relevance Engine · Research Concept</p>
+</div>
+</footer>
+
+</body>
+</html>
