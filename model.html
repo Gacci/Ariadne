@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematical Model | Investigative Relevance Engine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="logo">Investigative Relevance Engine</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="architecture.html">Architecture</a>
+            <a href="model.html">Mathematical Model</a>
+            <a href="existing-approaches.html">Existing Approaches</a>
+        </div>
+    </div>
+</nav>
+
+<header class="page-header">
+<div class="container">
+
+<p class="eyebrow">MATHEMATICAL MODEL</p>
+
+<h1>Unified Markov-Chain Ranking</h1>
+
+<p>
+A conceptual extension of graph-based ranking for
+query-dependent investigative relevance.
+</p>
+
+</div>
+</header>
+
+<main>
+
+<section>
+<div class="container">
+
+<h2>Transition Probability</h2>
+
+<p>
+Let \(P_{ij}\) represent the probability of transitioning from entity
+\(i\) to entity \(j\).
+</p>
+
+<div class="big-formula">
+P<sub>ij</sub> =
+d(αG<sub>ij</sub> + βR<sub>ij</sub> + γE<sub>ij</sub>
++ δT<sub>ij</sub> + εS<sub>ij</sub> + ζA<sub>ij</sub>)
++ (1−d)Z<sub>j</sub>
+</div>
+
+<p>
+The individual components represent different dimensions of investigative
+relevance.
+</p>
+
+</div>
+</section>
+
+<section class="alt">
+<div class="container">
+
+<h2>Model Components</h2>
+
+<table>
+
+<tr>
+<th>Symbol</th>
+<th>Component</th>
+<th>Concept</th>
+</tr>
+
+<tr>
+<td>G<sub>ij</sub></td>
+<td>Graph Structure</td>
+<td>Structural importance and connectivity.</td>
+</tr>
+
+<tr>
+<td>R<sub>ij</sub></td>
+<td>Query Relevance</td>
+<td>How closely the relationship answers the current question.</td>
+</tr>
+
+<tr>
+<td>E<sub>ij</sub></td>
+<td>Evidence Strength</td>
+<td>Quality and corroboration of supporting evidence.</td>
+</tr>
+
+<tr>
+<td>T<sub>ij</sub></td>
+<td>Temporal Relevance</td>
+<td>Relevance based on timing and temporal proximity.</td>
+</tr>
+
+<tr>
+<td>S<sub>ij</sub></td>
+<td>Source Trust</td>
+<td>Reliability of the source supporting the relationship.</td>
+</tr>
+
+<tr>
+<td>A<sub>ij</sub></td>
+<td>Anomaly Signal</td>
+<td>Unexpected or missing relationships and behavior.</td>
+</tr>
+
+<tr>
+<td>d</td>
+<td>Damping Factor</td>
+<td>Controls graph propagation versus teleportation.</td>
+</tr>
+
+<tr>
+<td>Z<sub>j</sub></td>
+<td>Trust Teleport</td>
+<td>Personalized probability distribution over trusted targets.</td>
+</tr>
+
+<tr>
+<td>α...ζ</td>
+<td>Weights</td>
+<td>Relative importance of each feature.</td>
+</tr>
+
+</table>
+
+</div>
+</section>
+
+<section>
+<div class="container">
+
+<h2>Stochastic Constraint</h2>
+
+<p>
+For the matrix to represent a valid Markov process, transition probabilities
+must be normalized:
+</p>
+
+<div class="formula">
+Σ<sub>j</sub> P<sub>ij</sub> = 1
+</div>
+
+<p>
+In an implementation, the feature combination would therefore need to be
+normalized before or during construction of the transition matrix.
+</p>
+
+</div>
+</section>
+
+<section class="alt">
+<div class="container">
+
+<h2>Query-Dependent Transition Matrix</h2>
+
+<p>
+Unlike conventional static graph ranking, the transition matrix would be
+conditioned on the current investigation.
+</p>
+
+<div class="big-formula">
+P = P(Q, C, E, T)
+</div>
+
+<ul>
+<li><strong>Q</strong> = investigative query</li>
+<li><strong>C</strong> = case context</li>
+<li><strong>E</strong> = evidence characteristics</li>
+<li><strong>T</strong> = temporal context</li>
+</ul>
+
+<p>
+Consequently:
+</p>
+
+<div class="formula">
+Ranking(Query A) ≠ Ranking(Query B)
+</div>
+
+<p>
+even when both queries operate over the same underlying graph.
+</p>
+
+</div>
+</section>
+
+<section>
+<div class="container">
+
+<h2>Trust Teleport</h2>
+
+<p>
+The teleport component provides an opportunity to introduce investigator
+context and source trust into the random walk.
+</p>
+
+<p>
+Instead of assuming a uniform teleport distribution, the system could
+construct:
+</p>
+
+<div class="formula">
+Z<sub>j</sub> =
+f(SourceTrust<sub>j</sub>, EvidenceTrust<sub>j</sub>,
+InvestigatorContext<sub>j</sub>)
+</div>
+
+<p>
+Potential teleport targets could include:
+</p>
+
+<ul>
+<li>Verified evidence</li>
+<li>Authoritative records</li>
+<li>Trusted sources</li>
+<li>Confirmed case entities</li>
+<li>Investigator-selected entities</li>
+</ul>
+
+<p>
+The exact definition of trust is an open research question. Trust should
+not be treated as absolute truth.
+</p>
+
+</div>
+</section>
+
+<section class="alt">
+<div class="container">
+
+<h2>Anomaly / Negative Evidence</h2>
+
+<p>
+Traditional graph analysis primarily operates on relationships that exist.
+This model explores whether deviations from expected behavior can also
+contribute to ranking.
+</p>
+
+<div class="formula">
+A(v,Q) =
+ExpectedBehavior(v,Q) − ObservedBehavior(v,Q)
+</div>
+
+<p>
+For example, a communication pattern that normally occurs frequently may
+disappear during a critical period.
+</p>
+
+<p>
+However, an observed absence may have multiple explanations:
+</p>
+
+<ul>
+<li>The relationship genuinely did not occur.</li>
+<li>The relationship occurred but was not recorded.</li>
+<li>The relevant data source is incomplete.</li>
+<li>The collection system failed.</li>
+<li>The behavioral baseline is incorrect.</li>
+</ul>
+
+<div class="insight">
+Anomaly should be treated as an investigative signal,
+not evidence of guilt.
+</div>
+
+</div>
+</section>
+
+<section>
+<div class="container">
+
+<h2>Dynamic Weight Learning</h2>
+
+<p>
+The coefficients α, β, γ, δ, ε, and ζ could initially be specified by
+domain experts.
+</p>
+
+<p>
+A later version could learn the weights from labeled cases.
+</p>
+
+<h3>Three possible strategies</h3>
+
+<div class="cards">
+
+<div class="card">
+<h3>A. Expert Weights</h3>
+<p>
+Domain experts specify the relative importance of each feature.
+</p>
+</div>
+
+<div class="card">
+<h3>B. Global Learning</h3>
+<p>
+A single set of weights is learned from historical or synthetic cases.
+</p>
+</div>
+
+<div class="card">
+<h3>C. Query-Dependent Learning</h3>
+<p>
+The system learns weights as a function of the investigative question
+and case context.
+</p>
+</div>
+
+</div>
+
+<p>
+A pairwise learning-to-rank objective could, for example, attempt to ensure:
+</p>
+
+<div class="formula">
+Score(relevant) &gt; Score(irrelevant)
+</div>
+
+<p>
+The appropriate learning strategy remains an experimental question.
+</p>
+
+</div>
+</section>
+
+<section class="alt">
+<div class="container">
+
+<h2>Potential Extensions</h2>
+
+<ul>
+<li>Temporal Markov models</li>
+<li>Dynamic graphs</li>
+<li>Bayesian evidence modeling</li>
+<li>Contradiction detection</li>
+<li>Multi-source corroboration</li>
+<li>Counterfactual ranking</li>
+<li>Investigator feedback</li>
+<li>Adaptive query interpretation</li>
+</ul>
+
+</div>
+</section>
+
+<section>
+<div class="container">
+
+<h2>Important Boundary</h2>
+
+<p>
+The mathematical score should represent <strong>investigative relevance</strong>,
+not probability of guilt.
+</p>
+
+<div class="warning">
+A score of 0.91 should not mean "91% probability this person committed
+the crime."
+</div>
+
+<p>
+It should instead mean something closer to:
+</p>
+
+<blockquote>
+Under the current query, evidence, temporal context, and ranking model,
+this entity has a high computed relevance.
+</blockquote>
+
+</div>
+</section>
+
+</main>
+
+<footer>
+<div class="container">
+<p>Investigative Relevance Engine · Research Concept</p>
+</div>
+</footer>
+
+</body>
+</html>
